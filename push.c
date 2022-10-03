@@ -36,16 +36,16 @@ void	push_a(t_stack *stack)
 	stack->stack_b = tmp;
 }
 
-void	pa(t_stack *stack, int check)
+void	pa(t_stack *stack, int print)
 {
 	if (stack->len_b == 0)
-		return;
+		return ;
 	push_a(stack);
 	if (stack->len_b == 1)
 		stack->stack_b = NULL;
-	stack->len_a++;
 	stack->len_b--;
-	if(check)
+	stack->len_a++;
+	if (print)
 		write(1, "pa\n", 3);
 }
 
@@ -73,15 +73,15 @@ void	push_b(t_stack *stack)
 	stack->stack_a = tmp;
 }
 
-void	pb(t_stack *stack, int check)
+void	pb(t_stack *stack, int print)
 {
 	if (stack->len_a == 0)
-		return;
+		return ;
 	push_b(stack);
 	if (stack->len_a == 1)
 		stack->stack_a = NULL;
 	stack->len_b++;
 	stack->len_a--;
-	if(check)
+	if (print)
 		write(1, "pb\n", 3);
 }
