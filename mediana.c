@@ -16,10 +16,10 @@ void	num_value_a(t_stack *stack)
 {
 	int	len;
 	int	min;
-	int max;
-	
+	int	max;
+
 	if (stack->len_a == 0)
-		return;
+		return ;
 	len = stack->len_a;
 	min = stack->stack_a->index;
 	max = stack->stack_a->index;
@@ -40,18 +40,18 @@ void	num_value_b(t_stack *stack)
 {
 	int	len;
 	int	min;
-	int max;
+	int	max;
 
 	if (stack->len_b == 0)
-		return;
+		return ;
 	len = stack->len_b;
 	min = stack->stack_b->index;
 	max = stack->stack_b->index;
 	while (len-- > 0)
 	{
-		if(min > stack->stack_b->index)
+		if (min > stack->stack_b->index)
 			min = stack->stack_b->index;
-		if(max < stack->stack_b->index)
+		if (max < stack->stack_b->index)
 			max = stack->stack_b->index;
 		stack->stack_b = stack->stack_b->next;
 	}
@@ -70,7 +70,7 @@ void	put_bottom(t_stack *stack)
 	}
 }
 
-void	med_division_first(t_stack *stack)
+void	med_division(t_stack *stack)
 {
 	int	len;
 
