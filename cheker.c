@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	get_cmd(t_stack *stack, char *line)
+static void	operations(t_stack *stack, char *line)
 {
 	if (!ft_strncmp(line, "pa\n", 3))
 		pa(stack, 0);
@@ -49,7 +49,7 @@ static void	checker(t_stack *stack)
 		line = get_next_line(0);
 		if (!line)
 			break ;
-		get_cmd(stack, line);
+		operations(stack, line);
 	}
 	if (sort_done(stack))
 		write(1, "OK\n", 3);
@@ -59,8 +59,8 @@ static void	checker(t_stack *stack)
 
 t_stack	*parsing(char **av)
 {
-	t_stack *stack;
-	char **arr;
+	t_stack	*stack;
+	char	**arr;
 
 	arr = get_line(av);
 	check_num(arr);
@@ -68,19 +68,19 @@ t_stack	*parsing(char **av)
 	stack = init_stack(arr);
 	fill_stack(stack, arr);
 	free_ps(arr, 0);
-	return(stack);
+	return (stack);
 }
 
 int	main(int ac, char **av)
 {
-	t_stack *stack;
+	t_stack	*stack;
 
-	if(ac > 1)
+	if (ac > 1)
 	{
 		stack = parsing(av);
 		checker(stack);
-		// print_stacks(stack, stack->stack_a, stack->stack_b);
 		free_stack(stack);
 	}
-	return(0);
+	return (0);
 }
+
