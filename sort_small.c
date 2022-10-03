@@ -43,7 +43,7 @@ void	sort_three_a(t_stack *stack)
 		ra(stack, 1);
 	n = stack->stack_a->index;
 	nnext = stack->stack_a->next->index;
-	if(n > nnext)
+	if (n > nnext)
 		sa(stack, 1);
 }
 
@@ -54,45 +54,24 @@ void	sort_three_b(t_stack *stack)
 	int	nprev;
 	int	len;
 
-	len = stack->len_b;
 	n = stack->stack_b->index;
 	nnext = stack->stack_b->next->index;
 	nprev = stack->stack_b->prev->index;
+	len = stack->len_b;
 	if (nnext > n && nnext > nprev)
 		rrb(stack, 1);
 	else if (n > nnext && n > nprev)
 		rb(stack, 1);
 	n = stack->stack_b->index;
 	nnext = stack->stack_b->next->index;
-	if(n > nnext)
-		sa(stack, 1);
+	if (n > nnext)
+		sb(stack, 1);
 	while (len-- > 0)
 	{
 		stack->stack_b->check = -1;
 		pa(stack, 1);
 		ra(stack, 1);
 	}
-}
-
-void	sort_b_index(t_stack *stack)
-{
-	int	i;
-	int	inext;
-	int	iprev;
-
-	if (stack->len_b == 0)
-		return;
-	i = stack->stack_b->index;
-	inext = stack->stack_b->next->index;
-	iprev = stack->stack_b->prev->index;
-	if (inext > i && inext > iprev)
-		rrb(stack, 1);
-	else if (i > inext && i > iprev)
-		rb(stack, 1);
-	i = stack->stack_b->index;
-	inext = stack->stack_b->next->index;
-	if (i > inext)
-		sb(stack, 1);
 }
 
 int	stack_min(t_stack *stack)
@@ -114,11 +93,30 @@ int	stack_min(t_stack *stack)
 	while (++j)
 	{
 		if (tmp->index == stack->min)
-			break;
+			break ;
 		tmp = tmp->prev;
 	}
 	if (j >= i)
-		return(1);
-	return(0);
+		return (1);
+	return (0);
 }
 
+void	sort_five(t_stack *stack)
+{
+	while (stack->len_a > 3)
+	{
+		num_value_a(stack);
+		if (stack->stack_a->index == stack->min)
+		{
+			pb(stack, 1);
+			continue ;
+		}
+		if (stack_min(stack))
+			ra(stack, 1);
+		else
+			rra(stack, 1);
+	}
+	sort_three_a(stack);
+	pa(stack, 1);
+	pa(stack, 1);
+}
