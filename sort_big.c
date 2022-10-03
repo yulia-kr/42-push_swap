@@ -56,6 +56,30 @@ void	move_minb(t_stack *stack)
 	}
 }
 
+void	move_mina(t_stack *stack)
+{
+	int	check;
+	int	min;
+
+	check = stack->stack_a->check;
+	while (stack->stack_a->check == check && check != -1)
+	{
+		min = stack->stack_a->prev->index + 1;
+		if (stack->len_b > 1)
+			search_mina(stack);
+		if (stack->stack_a->index == min)
+			push_down(stack);
+		else
+			pb(stack, 1);
+	}
+}
+
+void	push_down(t_stack *stack)
+{
+	stack->stack_a->check = -1;
+	ra(stack, 1);
+}
+
 void	search_mina(t_stack *stack)
 {
 	int	min;
@@ -82,23 +106,5 @@ void	search_mina(t_stack *stack)
 	{
 		sa(stack, 1);
 		push_down(stack);
-	}
-}
-
-void	move_mina(t_stack *stack)
-{
-	int	check;
-	int	min;
-
-	check = stack->stack_a->check;
-	while (stack->stack_a->check == check && check != -1)
-	{
-		min = stack->stack_a->prev->index + 1;
-		if (stack->len_b > 1)
-			search_mina(stack);
-		if (stack->stack_a->index == min)
-			push_down(stack);
-		else
-			pb(stack, 1);
 	}
 }
