@@ -14,8 +14,8 @@
 
 void	create_stack(t_stack *stack, int *sort, int *unsort, int len)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < len)
@@ -31,7 +31,6 @@ void	create_stack(t_stack *stack, int *sort, int *unsort, int len)
 			}
 			j++;
 		}
-		// printf("bubble stack i %d = sort %d\n", i, sort[i]);
 		i++;
 	}
 	free(unsort);
@@ -52,7 +51,7 @@ void	bubble_sort(t_stack *stack, int *sort, int *unsort, int len)
 		j = 0;
 		while (j < (len - 1 - i))
 		{
-			if(sort[j] > sort[j + 1])
+			if (sort[j] > sort[j + 1])
 			{
 				tmp = sort[j + 1];
 				sort[j + 1] = sort[j];
@@ -68,25 +67,24 @@ void	bubble_sort(t_stack *stack, int *sort, int *unsort, int len)
 
 void	fill_stack(t_stack *stack, char **arr)
 {
-	int *unsort;
-	int *sort;
-	int i;
-	int nb;
-	int len;
+	int	*unsort;
+	int	*sort;
+	int	i;
+	int	num;
+	int	len;
 
 	len = 0;
 	i = -1;
 	while (arr[++i])
 		len++;
 	unsort = malloc(sizeof(int) * (len));
-	sort = malloc(sizeof(int) * len);
+	sort = malloc(sizeof(int) * (len));
 	i = 0;
 	while (i < len)
 	{
-		nb = ft_atoi(arr[i]);
-		unsort[i] = nb;
-		sort[i] = nb;
-		// printf("stack i %d = unsort %d\n", i, unsort[i]);
+		num = ft_atoi(arr[i]);
+		unsort[i] = num;
+		sort[i] = num;
 		i++;
 	}
 	bubble_sort(stack, sort, unsort, len);
