@@ -39,14 +39,14 @@ typedef struct	s_stack
 	int		min;
 	int		max;
 	int 	med;
-	int		btm;
+	int		btm_a;
 }			t_stack;
 
-void	error(void);
-void	free_ps(char **arr, int print);
-void	check_num(char **arr);
-void	check_doubles(char **arr);
 char	**get_line(char **av);
+void	check_doubles(char **arr);
+void	check_num(char **arr);
+void	free_ps(char **arr, int print);
+void	error(void);
 
 t_stack	*init_stack(char **arr);
 t_node	*new_list(int num, int index);
@@ -65,9 +65,9 @@ void	sb(t_stack *stack, int check);
 void	ss(t_stack *stack, int check);
 
 void	push_a(t_stack *stack);
-void	pa(t_stack *stack, int check);
+void	pa(t_stack *stack, int print);
 void	push_b(t_stack *stack);
-void	pb(t_stack *stack, int check);
+void	pb(t_stack *stack, int print);
 
 void	ra(t_stack *stack, int check);
 void	rb(t_stack *stack, int check);
@@ -77,28 +77,28 @@ void	rra(t_stack *stack, int check);
 void	rrb(t_stack *stack, int check);
 void	rrr(t_stack *stack, int check);
 
+void	med_division(t_stack *stack);
 void	num_value_a(t_stack *stack);
 void	num_value_b(t_stack *stack);
 void	put_bottom(t_stack *stack);
-void	med_division_first(t_stack *stack);
 
 int		sort_done(t_stack *stack);
 void	sort_three_a(t_stack *stack);
 void	sort_three_b(t_stack *stack);
-void	sort_b_index(t_stack *stack);
+void	sort_five(t_stack *stack);
 int		stack_min(t_stack *stack);
 
-void	push_down(t_stack *stack);
-void	sort_five(t_stack *stack);
 void	check_stack_b(t_stack *stack, int check);
+void	push_a_to_b(t_stack *stack, int check, int min, int len);
 void	check_stack_b_second(t_stack *stack, int check);
-void	push_a_five(t_stack *stack, int check, int min, int i);
-void	push_b_five(t_stack *stack);
+void	push_b_to_a(t_stack *stack);
+void	sort_index_b(t_stack *stack);
 
 int		search_minb(t_stack *stack);
 void	move_minb(t_stack *stack);
-void	search_mina(t_stack *stack);
 void	move_mina(t_stack *stack);
+void	push_down(t_stack *stack);
+void	search_mina(t_stack *stack);
 
 t_stack	*parsing(char **av);
 void	sorting(t_stack *stack);
