@@ -41,13 +41,14 @@ void	color(t_stack *stack)
 {
 	getchar();
 	system("clear");
+	ft_putstr_fd("\033[01;38;05;226;48;05;97m", 1);
 	ft_putnbr_fd(stack->len_a, 1);
 	ft_putstr_fd("\033[0m", 1);
 	ft_putstr_fd("\033[36;1m ---- stack a -----|  \033[0m", 1);
 	ft_putnbr_fd(stack->len_b, 1);
 	ft_putstr_fd("\033[0m", 1);
 	ft_putstr_fd("\033[36;1m|------ stack b -----|\033[0m\n", 1);
-	ft_putstr_fd("num\tindex\tflag\tnum\tindex\tflag\033[0m\n", 1);
+	ft_putstr_fd("num\tindex\tcheck\tnum\tindex\tcheck\033[0m\n", 1);
 }
 
 void	print_stacks(t_stack *stack, t_node *tmp_a, t_node	*tmp_b)
@@ -76,4 +77,5 @@ void	print_stacks(t_stack *stack, t_node *tmp_a, t_node	*tmp_b)
 	ft_putstr_fd("\033[36;1m--------------------|  \033[0m", 1);
 	ft_putstr_fd("\033[36;1m|--------------------|\033[0m\n", 1);
 }
+
 
