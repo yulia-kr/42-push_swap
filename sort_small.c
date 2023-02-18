@@ -6,7 +6,7 @@
 /*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:01:28 by ykruhlyk          #+#    #+#             */
-/*   Updated: 2022/10/02 10:22:51 by ykruhlyk         ###   ########.fr       */
+/*   Updated: 2022/10/07 11:42:52 by ykruhlyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ int	sort_done(t_stack *stack)
 
 	top = stack->stack_a;
 	len = stack->len_a - 1;
-	while (len-- > 0)
+	while (len > 0)
 	{
 		if (top->index > top->next->index)
 			return (0);
 		top = top->next;
+		len--;
 	}
 	return (1);
 }
@@ -47,33 +48,6 @@ void	sort_three_a(t_stack *stack)
 		sa(stack, 1);
 }
 
-void	sort_three_b(t_stack *stack)
-{
-	int	n;
-	int	nnext;
-	int	nprev;
-	int	len;
-
-	n = stack->stack_b->index;
-	nnext = stack->stack_b->next->index;
-	nprev = stack->stack_b->prev->index;
-	len = stack->len_b;
-	if (nnext > n && nnext > nprev)
-		rrb(stack, 1);
-	else if (n > nnext && n > nprev)
-		rb(stack, 1);
-	n = stack->stack_b->index;
-	nnext = stack->stack_b->next->index;
-	if (n > nnext)
-		sb(stack, 1);
-	while (len-- > 0)
-	{
-		stack->stack_b->check = -1;
-		pa(stack, 1);
-		ra(stack, 1);
-	}
-}
-
 int	stack_min(t_stack *stack)
 {
 	int		i;
@@ -81,20 +55,22 @@ int	stack_min(t_stack *stack)
 	t_node	*tmp;
 
 	tmp = stack->stack_a;
-	i = 0;
-	while (++i)
+	i = 1;
+	while (i)
 	{
 		if (tmp->index == stack->min)
 			break ;
 		tmp = tmp->next;
+		i++;
 	}
 	tmp = stack->stack_a;
-	j = 0;
-	while (++j)
+	j = 1;
+	while (j)
 	{
 		if (tmp->index == stack->min)
 			break ;
 		tmp = tmp->prev;
+		j++;
 	}
 	if (j >= i)
 		return (1);

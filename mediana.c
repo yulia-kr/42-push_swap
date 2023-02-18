@@ -6,7 +6,7 @@
 /*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 13:18:31 by ykruhlyk          #+#    #+#             */
-/*   Updated: 2022/10/02 11:34:06 by ykruhlyk         ###   ########.fr       */
+/*   Updated: 2022/10/07 12:18:17 by ykruhlyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,14 @@ void	num_value_a(t_stack *stack)
 	len = stack->len_a;
 	min = stack->stack_a->index;
 	max = stack->stack_a->index;
-	while (len-- > 0)
+	while (len > 0)
 	{
 		if (min > stack->stack_a->index)
 			min = stack->stack_a->index;
 		if (max < stack->stack_a->index)
 			max = stack->stack_a->index;
 		stack->stack_a = stack->stack_a->next;
+		len--;
 	}
 	stack->min = min;
 	stack->max = max;
@@ -47,13 +48,14 @@ void	num_value_b(t_stack *stack)
 	len = stack->len_b;
 	min = stack->stack_b->index;
 	max = stack->stack_b->index;
-	while (len-- > 0)
+	while (len > 0)
 	{
 		if (min > stack->stack_b->index)
 			min = stack->stack_b->index;
 		if (max < stack->stack_b->index)
 			max = stack->stack_b->index;
 		stack->stack_b = stack->stack_b->next;
+		len--;
 	}
 	stack->max = max;
 	stack->med = (min + max) / 2;
@@ -76,7 +78,7 @@ void	med_division(t_stack *stack)
 
 	num_value_a(stack);
 	len = stack->len_a;
-	while (len-- > 0)
+	while (len > 0)
 	{
 		if (stack->stack_a->index <= stack->med)
 		{
@@ -94,6 +96,7 @@ void	med_division(t_stack *stack)
 			else
 				ra(stack, 1);
 		}
+		len--;
 	}
 	put_bottom(stack);
 }

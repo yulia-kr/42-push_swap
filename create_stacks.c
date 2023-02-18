@@ -6,7 +6,7 @@
 /*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 11:13:46 by ykruhlyk          #+#    #+#             */
-/*   Updated: 2022/09/30 12:04:49 by ykruhlyk         ###   ########.fr       */
+/*   Updated: 2022/10/07 14:55:04 by ykruhlyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,8 @@ void	bubble_sort(t_stack *stack, int *sort, int *unsort, int len)
 	int	i;
 	int	j;
 	int	tmp;
-	int	count;
 
 	i = 0;
-	count = 0;
 	while (i < len)
 	{
 		j = 0;
@@ -56,7 +54,6 @@ void	bubble_sort(t_stack *stack, int *sort, int *unsort, int len)
 				tmp = sort[j + 1];
 				sort[j + 1] = sort[j];
 				sort[j] = tmp;
-				count++;
 			}
 			j++;
 		}
@@ -74,12 +71,11 @@ void	fill_stack(t_stack *stack, char **arr)
 	int	len;
 
 	len = 0;
-	i = -1;
-	while (arr[++i])
+	i = 0;
+	while (arr[len])
 		len++;
 	unsort = malloc(sizeof(int) * (len));
 	sort = malloc(sizeof(int) * (len));
-	i = 0;
 	while (i < len)
 	{
 		num = ft_atoi(arr[i]);

@@ -6,7 +6,7 @@
 /*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 11:16:52 by ykruhlyk          #+#    #+#             */
-/*   Updated: 2022/09/30 10:52:25 by ykruhlyk         ###   ########.fr       */
+/*   Updated: 2022/10/03 15:29:29 by ykruhlyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_stack	*init_stack(char **arr)
 	stack->stack_b = NULL;
 	stack->len_a = i;
 	stack->len_b = 0;
-	stack->btm_a = 1;
+	stack->btm = 1;
 	return (stack);
 }
 

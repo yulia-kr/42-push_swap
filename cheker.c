@@ -6,7 +6,7 @@
 /*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 10:25:28 by ykruhlyk          #+#    #+#             */
-/*   Updated: 2022/10/02 11:10:41 by ykruhlyk         ###   ########.fr       */
+/*   Updated: 2022/10/03 15:24:14 by ykruhlyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,3 @@ int	main(int ac, char **av)
 	}
 	return (0);
 }
-

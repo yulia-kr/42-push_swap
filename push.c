@@ -6,7 +6,7 @@
 /*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 15:47:38 by ykruhlyk          #+#    #+#             */
-/*   Updated: 2022/10/01 10:31:26 by ykruhlyk         ###   ########.fr       */
+/*   Updated: 2022/10/04 09:14:38 by ykruhlyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	pa(t_stack *stack, int print)
 	push_a(stack);
 	if (stack->len_b == 1)
 		stack->stack_b = NULL;
-	stack->len_b--;
 	stack->len_a++;
+	stack->len_b--;
 	if (print)
 		write(1, "pa\n", 3);
 }

@@ -6,17 +6,17 @@
 /*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 14:46:50 by ykruhlyk          #+#    #+#             */
-/*   Updated: 2022/09/26 09:14:21 by ykruhlyk         ###   ########.fr       */
+/*   Updated: 2022/10/04 09:16:08 by ykruhlyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *stack, int check)
+void	sa(t_stack *stack, int print)
 {
 	int	tmp;
 
-	if(stack->len_a > 1)
+	if (stack->len_a > 1)
 	{
 		tmp = stack->stack_a->num;
 		stack->stack_a->num = stack->stack_a->next->num;
@@ -30,15 +30,15 @@ void	sa(t_stack *stack, int check)
 	}
 	else
 		return ;
-	if (check)
+	if (print)
 		write(1, "sa\n", 3);
 }
 
-void	sb(t_stack *stack, int check)
+void	sb(t_stack *stack, int print)
 {
 	int	tmp;
 
-	if(stack->len_b > 1)
+	if (stack->len_b > 1)
 	{
 		tmp = stack->stack_b->num;
 		stack->stack_b->num = stack->stack_b->next->num;
@@ -52,17 +52,17 @@ void	sb(t_stack *stack, int check)
 	}
 	else
 		return ;
-	if (check)
+	if (print)
 		write(1, "sb\n", 3);
 }
 
-void	ss(t_stack *stack, int check)
+void	ss(t_stack *stack, int print)
 {
 	if (stack->len_a > 1 && stack->len_b > 1)
 	{
 		sa(stack, 0);
 		sb(stack, 0);
-		if (check)
+		if (print)
 			write(1, "ss\n", 3);
 	}
 }

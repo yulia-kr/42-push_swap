@@ -6,10 +6,9 @@
 /*   By: ykruhlyk <ykruhlyk@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 09:41:32 by ykruhlyk          #+#    #+#             */
-/*   Updated: 2022/10/01 11:02:07 by ykruhlyk         ###   ########.fr       */
+/*   Updated: 2022/10/07 11:43:11 by ykruhlyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -21,16 +20,16 @@
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
 
-typedef struct	s_node
+typedef struct s_node
 {
 	int				num;
 	int				index;
 	int				check;
-	struct s_node 	*next;
+	struct s_node	*next;
 	struct s_node	*prev;
 }					t_node;
 
-typedef struct	s_stack
+typedef struct s_stack
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
@@ -38,8 +37,8 @@ typedef struct	s_stack
 	int		len_b;
 	int		min;
 	int		max;
-	int 	med;
-	int		btm_a;
+	int		med;
+	int		btm;
 }			t_stack;
 
 char	**get_line(char **av);
@@ -57,25 +56,22 @@ void	create_stack(t_stack *stack, int *sort, int *unsort, int len);
 void	bubble_sort(t_stack *stack, int *sort, int *unsort, int len);
 void	fill_stack(t_stack *stack, char **arr);
 
-void	color(t_stack *stack);
-void	print_stacks(t_stack *stack, t_node *tmp_a, t_node *tmp_b);
-
-void	sa(t_stack *stack, int check);
-void	sb(t_stack *stack, int check);
-void	ss(t_stack *stack, int check);
+void	sa(t_stack *stack, int print);
+void	sb(t_stack *stack, int print);
+void	ss(t_stack *stack, int print);
 
 void	push_a(t_stack *stack);
 void	pa(t_stack *stack, int print);
 void	push_b(t_stack *stack);
 void	pb(t_stack *stack, int print);
 
-void	ra(t_stack *stack, int check);
-void	rb(t_stack *stack, int check);
-void	rr(t_stack *stack, int check);
+void	ra(t_stack *stack, int print);
+void	rb(t_stack *stack, int print);
+void	rr(t_stack *stack, int print);
 
-void	rra(t_stack *stack, int check);
-void	rrb(t_stack *stack, int check);
-void	rrr(t_stack *stack, int check);
+void	rra(t_stack *stack, int print);
+void	rrb(t_stack *stack, int print);
+void	rrr(t_stack *stack, int print);
 
 void	med_division(t_stack *stack);
 void	num_value_a(t_stack *stack);
@@ -84,7 +80,6 @@ void	put_bottom(t_stack *stack);
 
 int		sort_done(t_stack *stack);
 void	sort_three_a(t_stack *stack);
-void	sort_three_b(t_stack *stack);
 void	sort_five(t_stack *stack);
 int		stack_min(t_stack *stack);
 
